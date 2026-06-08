@@ -4,178 +4,183 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chemistry Olympiad Tutoring — About</title>
+  <title>Chemistry Olympiad Tutoring — Home</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* ── Bio Section ── */
-    .bio-section {
-      background: var(--white);
+    /* ── Hero ── */
+    .hero {
+      min-height: calc(100vh - 64px);
+      background: linear-gradient(135deg, var(--navy) 0%, #1a3a50 60%, #0d2b38 100%);
+      display: flex;
+      align-items: center;
+      padding: 4rem 2rem;
+      position: relative;
+      overflow: hidden;
     }
 
-    .bio-inner {
+    /* Decorative background molecule / circle motif */
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(26,127,142,0.2);
+      top: -120px; right: -100px;
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.15);
+      bottom: -80px; right: 60px;
+      pointer-events: none;
+    }
+
+    .hero-inner {
       max-width: var(--max-w);
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 300px 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 4rem;
-      align-items: start;
+      align-items: center;
+      position: relative;
     }
 
-    .bio-photo {
-      border-radius: 10px;
-      overflow: hidden;
-      border: 1px solid var(--gray-lt);
-      aspect-ratio: 3/4;
-      background: var(--gray-lt);
+    .hero-text h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5.5vw, 4rem);
+      color: var(--white);
+      line-height: 1.1;
+    }
+
+    .hero-text h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-text p {
+      margin: 1.5rem 0 2.5rem;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.7;
+      max-width: 460px;
+    }
+
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    /* Hero image / visual placeholder */
+    .hero-visual {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      aspect-ratio: 4/3;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--gray);
+      color: rgba(255,255,255,0.25);
       font-size: 0.9rem;
       text-align: center;
-      padding: 1rem;
-      /* Replace with <img src="your-photo.jpg" alt="Tutor name"> */
+      padding: 2rem;
+      /* Replace with an <img> tag pointing to your photo/graphic */
     }
 
-    .bio-text h2 {
-      font-family: var(--font-display);
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
-    }
-
-    .bio-text .subtitle {
-      font-size: 1rem;
-      color: var(--teal);
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-    }
-
-    .bio-text p {
-      margin-top: 1rem;
-      line-height: 1.8;
-      color: #374151;
-      font-size: 1rem;
-    }
-
-    /* ── Credentials / Stats strip ── */
-    .stats-strip {
-      background: var(--navy);
-      color: var(--white);
-      padding: 3.5rem 2rem;
-    }
-
-    .stats-grid {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 2rem;
-      text-align: center;
-    }
-
-    .stat-item .number {
-      font-family: var(--font-display);
-      font-size: 2.8rem;
-      color: var(--gold);
-      line-height: 1;
-    }
-
-    .stat-item .label {
-      margin-top: 0.5rem;
-      font-size: 0.875rem;
-      color: rgba(255,255,255,0.65);
-      line-height: 1.4;
-    }
-
-    /* ── Approach Section ── */
-    .approach-section {
-      background: var(--cream);
-    }
-
-    .approach-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-    }
-
-    .approach-inner > p {
-      max-width: 680px;
-      line-height: 1.8;
-      color: #374151;
-      margin-bottom: 2.5rem;
-    }
-
-    .approach-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .approach-card {
+    /* ── Features strip ── */
+    .features {
       background: var(--white);
-      border-radius: 8px;
-      padding: 1.75rem;
-      border-left: 4px solid var(--teal);
+      padding: 4rem 2rem;
     }
 
-    .approach-card h3 {
+    .features-grid {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .feature-card {
+      padding: 2rem 1.5rem;
+      border-radius: 8px;
+      border: 1px solid var(--gray-lt);
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+
+    .feature-card:hover {
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      transform: translateY(-4px);
+    }
+
+    .feature-icon {
+      width: 48px; height: 48px;
+      border-radius: 10px;
+      background: rgba(26,127,142,0.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+      /* Replace text emoji with <img> if desired */
+    }
+
+    .feature-card h3 {
       font-family: var(--font-display);
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       margin-bottom: 0.6rem;
     }
 
-    .approach-card p {
-      font-size: 0.9rem;
+    .feature-card p {
+      font-size: 0.92rem;
       color: var(--gray);
       line-height: 1.65;
     }
 
-    /* ── FAQ Section ── */
-    .faq-section {
-      background: var(--white);
+    /* ── Testimonial / Quote strip ── */
+    .quote-strip {
+      background: var(--teal);
+      padding: 4rem 2rem;
+      text-align: center;
+      color: var(--white);
     }
 
-    .faq-inner {
-      max-width: 760px;
-      margin: 0 auto;
+    .quote-strip blockquote {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 2.5vw, 2rem);
+      font-style: italic;
+      max-width: 750px;
+      margin: 0 auto 1rem;
+      line-height: 1.4;
     }
 
-    details {
-      border-bottom: 1px solid var(--gray-lt);
-      padding: 1.25rem 0;
+    .quote-strip cite {
+      font-size: 0.9rem;
+      opacity: 0.75;
     }
 
-    summary {
-      font-weight: 600;
-      cursor: pointer;
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 1rem;
+    /* ── CTA Section ── */
+    .cta-section {
+      text-align: center;
+      background: var(--cream);
+      padding: 5rem 2rem;
     }
 
-    summary::after {
-      content: '+';
-      font-size: 1.4rem;
-      color: var(--teal);
-      transition: transform 0.2s;
-      flex-shrink: 0;
-      margin-left: 1rem;
+    .cta-section h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      max-width: 560px;
+      margin: 0 auto 1rem;
     }
 
-    details[open] summary::after { transform: rotate(45deg); }
-
-    details p {
-      margin-top: 0.85rem;
+    .cta-section p {
       color: var(--gray);
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
       line-height: 1.7;
-      font-size: 0.95rem;
     }
 
-    @media (max-width: 720px) {
-      .bio-inner { grid-template-columns: 1fr; }
-      .bio-photo { max-width: 220px; }
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-visual { display: none; }
     }
   </style>
 </head>
@@ -185,148 +190,89 @@
   <nav>
     <div class="nav-logo">Chem<span>Olympiad</span> Tutoring</div>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="book.html">Book</a></li>
     </ul>
   </nav>
 
-  <!-- ══ Page Banner ══ -->
-  <div class="page-banner">
-    <h1>About</h1>
-    <p>[A one-line tagline about you or your tutoring philosophy.]</p>
-  </div>
-
-  <!-- ══ Bio ══ -->
-  <section class="bio-section">
-    <div class="bio-inner">
-
-      <div class="bio-photo">
-        <!-- EDIT: Replace with <img src="photo.jpg" alt="[Your name]"> -->
-        [Your photo here]
-      </div>
-
-      <div class="bio-text">
-        <p class="subtitle">Your Tutor</p>
-        <h2>[Your Name]</h2>
-        <div class="divider"></div>
-
+  <!-- ══ Hero ══ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>Master the<br><em>Chemistry Olympiad</em></h1>
         <p>
-          <!-- EDIT: Paragraph 1 — who you are, your background, awards.
-               Example: "I'm a [Year] at [University], where I study [Major].
-               I competed in the US National Chemistry Olympiad in [Year],
-               earning [Award/Honor]." -->
-          [Introductory paragraph about your background and credentials.]
+          <!-- EDIT: Your 1–2 sentence value proposition goes here.
+               Example: "Personalized, one-on-one tutoring designed to take you
+               from foundational concepts to competition-ready in every IChO topic." -->
+          [Your value proposition goes here.]
         </p>
-
-        <p>
-          <!-- EDIT: Paragraph 2 — your teaching philosophy or experience. -->
-          [Second paragraph about your teaching approach or relevant experience.]
-        </p>
-
-        <p>
-          <!-- EDIT: Paragraph 3 — anything else you'd like to share. -->
-          [Optional third paragraph.]
-        </p>
-
-        <div style="margin-top:2rem;">
+        <div class="hero-cta">
           <a href="book.html" class="btn btn-primary">Book a Session</a>
+          <a href="about.html" class="btn" style="color:#fff; border-color:rgba(255,255,255,0.35);">Learn More</a>
         </div>
+      </div>
+
+      <div class="hero-visual">
+        <!-- EDIT: Replace this div with an <img src="your-photo.jpg" alt="..."> -->
+        [Photo or graphic placeholder — e.g., tutor headshot or chemistry illustration]
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ Feature Cards ══ -->
+  <section class="features">
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <div class="feature-icon">⚗️</div>
+        <h3>[Topic / Strength #1]</h3>
+        <p>
+          <!-- EDIT: Brief description of a key service or strength.
+               Example: "Deep coverage of thermodynamics, kinetics, and equilibrium
+               with real past-exam problem sets." -->
+          [Description of this feature or subject area.]
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📐</div>
+        <h3>[Topic / Strength #2]</h3>
+        <p>[Description of this feature or subject area.]</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🏆</div>
+        <h3>[Topic / Strength #3]</h3>
+        <p>[Description of this feature or subject area.]</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📅</div>
+        <h3>[Topic / Strength #4]</h3>
+        <p>[Description of this feature or subject area.]</p>
       </div>
 
     </div>
   </section>
 
-  <!-- ══ Stats / Credentials ══ -->
-  <div class="stats-strip">
-    <div class="stats-grid">
-
-      <div class="stat-item">
-        <div class="number">[#]</div>
-        <div class="label">[Stat label, e.g., Students Tutored]</div>
-      </div>
-
-      <div class="stat-item">
-        <div class="number">[#]</div>
-        <div class="label">[Stat label, e.g., Years of Experience]</div>
-      </div>
-
-      <div class="stat-item">
-        <div class="number">[#]</div>
-        <div class="label">[Stat label, e.g., Competition Awards]</div>
-      </div>
-
-      <div class="stat-item">
-        <div class="number">[#]</div>
-        <div class="label">[Stat label, e.g., Subjects Covered]</div>
-      </div>
-
-    </div>
+  <!-- ══ Quote / Testimonial ══ -->
+  <div class="quote-strip">
+    <blockquote>
+      "[Student testimonial or an inspiring quote about learning chemistry goes here.]"
+    </blockquote>
+    <cite>— [Student name or source]</cite>
   </div>
 
-  <!-- ══ Approach ══ -->
-  <section class="approach-section">
-    <div class="approach-inner">
-      <h2>My <span class="accent">Approach</span></h2>
-      <div class="divider"></div>
-      <p>
-        <!-- EDIT: Describe your tutoring style or methodology in 1–2 sentences. -->
-        [Brief description of your overall teaching method or philosophy.]
-      </p>
-
-      <div class="approach-grid">
-
-        <div class="approach-card">
-          <h3>[Pillar #1 — e.g., Conceptual Depth]</h3>
-          <p>[Describe this aspect of your approach in 1–2 sentences.]</p>
-        </div>
-
-        <div class="approach-card">
-          <h3>[Pillar #2 — e.g., Problem-Solving Practice]</h3>
-          <p>[Describe this aspect of your approach in 1–2 sentences.]</p>
-        </div>
-
-        <div class="approach-card">
-          <h3>[Pillar #3 — e.g., Personalized Pacing]</h3>
-          <p>[Describe this aspect of your approach in 1–2 sentences.]</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ FAQ ══ -->
-  <section class="faq-section">
-    <div class="faq-inner">
-      <h2>Frequently Asked <span class="accent">Questions</span></h2>
-      <div class="divider"></div>
-
-      <details>
-        <summary>[FAQ Question #1 — e.g., What topics do you cover?]</summary>
-        <p>[Answer to question #1.]</p>
-      </details>
-
-      <details>
-        <summary>[FAQ Question #2 — e.g., How long are sessions?]</summary>
-        <p>[Answer to question #2.]</p>
-      </details>
-
-      <details>
-        <summary>[FAQ Question #3 — e.g., What is your pricing?]</summary>
-        <p>[Answer to question #3.]</p>
-      </details>
-
-      <details>
-        <summary>[FAQ Question #4 — e.g., Do you offer trial sessions?]</summary>
-        <p>[Answer to question #4.]</p>
-      </details>
-
-      <details>
-        <summary>[FAQ Question #5 — optional additional question]</summary>
-        <p>[Answer to question #5.]</p>
-      </details>
-
-    </div>
+  <!-- ══ Bottom CTA ══ -->
+  <section class="cta-section">
+    <h2>Ready to start your <em style="font-style:italic; color:var(--teal);">journey</em>?</h2>
+    <p>
+      <!-- EDIT: A brief closing pitch. Example: "Spots are limited — reach out today
+           to reserve your first session." -->
+      [Short closing pitch goes here.]
+    </p>
+    <a href="book.html" class="btn btn-primary">Book a Session →</a>
   </section>
 
   <!-- ══ Footer ══ -->
