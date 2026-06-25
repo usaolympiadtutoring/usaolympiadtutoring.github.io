@@ -21,7 +21,7 @@
       background: linear-gradient(135deg, var(--navy) 0%, #1a3a50 60%, #0d2b38 100%);
       display: flex;
       align-items: center;
-      padding: 4rem 2rem 3rem;
+      padding: 4rem 2rem;
       position: relative;
       overflow: hidden;
     }
@@ -38,6 +38,7 @@
       right: -100px;
       pointer-events: none;
     }
+
     .hero::after {
       content: '';
       position: absolute;
@@ -53,12 +54,12 @@
     .hero-inner {
       max-width: var(--max-w);
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 4rem;
+      align-items: center;
       width: 100%;
       position: relative;
-    }
-
-    .hero-text {
-      max-width: 760px;
     }
 
     .hero-text h1 {
@@ -78,7 +79,7 @@
       font-size: 1.1rem;
       color: rgba(255,255,255,0.7);
       line-height: 1.7;
-      max-width: 600px;
+      max-width: 560px;
     }
 
     .hero-cta {
@@ -87,34 +88,22 @@
       flex-wrap: wrap;
     }
 
-    /* ── Thin side photo strip ── */
-    .photo-strip {
-      background: var(--white);
-      padding: 0 2rem 4rem;
-    }
-
-    .photo-strip-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display: flex;
-      justify-content: flex-end;
-    }
-
+    /* Hero image / visual placeholder */
     .hero-visual {
-      width: min(100%, 420px);
-      aspect-ratio: 4 / 3;
-      background: #0d2b38;
+      width: min(100%, 360px);
+      justify-self: end;
+      background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 12px;
+      aspect-ratio: 4 / 3;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: rgba(255,255,255,0.7);
+      color: rgba(255,255,255,0.25);
       font-size: 0.9rem;
       text-align: center;
       padding: 2rem;
       overflow: hidden;
-      margin-left: auto;
     }
 
     .hero-visual img {
@@ -219,24 +208,15 @@
 
     /* ── Responsive ── */
     @media (max-width: 768px) {
-      .hero {
-        min-height: auto;
-        padding: 3rem 1.5rem 2rem;
-      }
-
-      .photo-strip {
-        padding: 0 1.5rem 3rem;
-      }
-
-      .photo-strip-inner {
-        justify-content: center;
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
       }
 
       .hero-visual {
+        justify-self: start;
         width: 100%;
         max-width: 100%;
-        aspect-ratio: 4 / 3;
-        margin-left: 0;
       }
     }
   </style>
@@ -267,12 +247,7 @@
           <a href="about.html" class="btn" style="color:#fff; border-color:rgba(255,255,255,0.35);">Learn More</a>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ══ Thin side photo strip ══ -->
-  <section class="photo-strip">
-    <div class="photo-strip-inner">
       <div class="hero-visual">
         <!-- Replace with your image -->
         [Photo or graphic placeholder]
@@ -283,13 +258,10 @@
   <!-- ══ Feature Cards ══ -->
   <section class="features">
     <div class="features-grid">
-
       <div class="feature-card">
         <div class="feature-icon">⚗️</div>
         <h3>Advanced Chemistry Concepts</h3>
-        <p>
-          Master organic, inorganic, physical and analytical chemistry concepts beyond the standard high school curriculum. Learn the theory needed to solve challenging Olympiad problems.
-        </p>
+        <p>Master organic, inorganic, physical and analytical chemistry concepts beyond the standard high school curriculum. Learn the theory needed to solve challenging Olympiad problems.</p>
       </div>
 
       <div class="feature-card">
@@ -303,7 +275,6 @@
         <h3>Competition Success Strategy</h3>
         <p>Learn from proven Olympiad methods, past paper analysis, and targeted practice designed to maximise performance in USNCO exams and beyond.</p>
       </div>
-      
     </div>
   </section>
 
