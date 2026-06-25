@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +21,7 @@
       background: linear-gradient(135deg, var(--navy) 0%, #1a3a50 60%, #0d2b38 100%);
       display: flex;
       align-items: center;
-      padding: 4rem 2rem;
+      padding: 4rem 2rem 3rem;
       position: relative;
       overflow: hidden;
     }
@@ -31,30 +30,35 @@
     .hero::before {
       content: '';
       position: absolute;
-      width: 600px; height: 600px;
+      width: 600px;
+      height: 600px;
       border-radius: 50%;
       border: 1.5px solid rgba(26,127,142,0.2);
-      top: -120px; right: -100px;
+      top: -120px;
+      right: -100px;
       pointer-events: none;
     }
     .hero::after {
       content: '';
       position: absolute;
-      width: 400px; height: 400px;
+      width: 400px;
+      height: 400px;
       border-radius: 50%;
       border: 1px solid rgba(201,168,76,0.15);
-      bottom: -80px; right: 60px;
+      bottom: -80px;
+      right: 60px;
       pointer-events: none;
     }
 
     .hero-inner {
       max-width: var(--max-w);
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
+      width: 100%;
       position: relative;
+    }
+
+    .hero-text {
+      max-width: 760px;
     }
 
     .hero-text h1 {
@@ -74,25 +78,50 @@
       font-size: 1.1rem;
       color: rgba(255,255,255,0.7);
       line-height: 1.7;
-      max-width: 460px;
+      max-width: 600px;
     }
 
-    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
 
-    /* Hero image / visual placeholder */
+    /* ── Thin side photo strip ── */
+    .photo-strip {
+      background: var(--white);
+      padding: 0 2rem 4rem;
+    }
+
+    .photo-strip-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      justify-content: flex-end;
+    }
+
     .hero-visual {
-      background: rgba(255,255,255,0.04);
+      width: min(100%, 420px);
+      aspect-ratio: 4 / 3;
+      background: #0d2b38;
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 12px;
-      aspect-ratio: 4/3;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.7);
       font-size: 0.9rem;
       text-align: center;
       padding: 2rem;
-      /* Replace with an <img> tag pointing to your photo/graphic */
+      overflow: hidden;
+      margin-left: auto;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     /* ── Features strip ── */
@@ -122,13 +151,15 @@
     }
 
     .feature-icon {
-      width: 48px; height: 48px;
+      width: 48px;
+      height: 48px;
       border-radius: 10px;
       background: rgba(26,127,142,0.1);
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 1.5rem;
       margin-bottom: 1.25rem;
-      /* Replace text emoji with <img> if desired */
     }
 
     .feature-card h3 {
@@ -188,8 +219,25 @@
 
     /* ── Responsive ── */
     @media (max-width: 768px) {
-      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-      .hero-visual { display: none; }
+      .hero {
+        min-height: auto;
+        padding: 3rem 1.5rem 2rem;
+      }
+
+      .photo-strip {
+        padding: 0 1.5rem 3rem;
+      }
+
+      .photo-strip-inner {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        width: 100%;
+        max-width: 100%;
+        aspect-ratio: 4 / 3;
+        margin-left: 0;
+      }
     }
   </style>
 </head>
@@ -210,12 +258,8 @@
     <div class="hero-inner">
       <div class="hero-text">
         <h1>Chemistry Olympiad Tutoring for USNCO and IChO Success</h1>
-        <p> Personalized, one-to-one tutoring with a curriculum tailored specifically to your strengths, weaknesses, and USNCO goals.
-        </p>
+        <p>Personalized, one-to-one tutoring with a curriculum tailored specifically to your strengths, weaknesses, and USNCO goals.</p>
         <p>
-          <!-- EDIT: Your 1–2 sentence value proposition goes here.
-               Example: "Personalized, one-on-one tutoring designed to take you
-               from foundational concepts to competition-ready in every IChO topic." -->
           Master the chemistry needed to excel in the US National Chemistry Olympiad (USNCO), whether your goal is earning Honors, achieving High Honors, or even aiming for study camp qualification with hopes to compete at IChO. Learn advanced concepts, develop problem-solving strategies, and build the confidence and intuition needed to tackle Olympiad-level questions.
         </p>
         <div class="hero-cta">
@@ -223,10 +267,15 @@
           <a href="about.html" class="btn" style="color:#fff; border-color:rgba(255,255,255,0.35);">Learn More</a>
         </div>
       </div>
+    </div>
+  </section>
 
+  <!-- ══ Thin side photo strip ══ -->
+  <section class="photo-strip">
+    <div class="photo-strip-inner">
       <div class="hero-visual">
-        <!-- EDIT: Replace this div with an <img src="your-photo.jpg" alt="..."> -->
-        [Photo or graphic placeholder — e.g., tutor headshot or chemistry illustration]
+        <!-- Replace with your image -->
+        [Photo or graphic placeholder]
       </div>
     </div>
   </section>
@@ -239,9 +288,6 @@
         <div class="feature-icon">⚗️</div>
         <h3>Advanced Chemistry Concepts</h3>
         <p>
-          <!-- EDIT: Brief description of a key service or strength.
-               Example: "Deep coverage of thermodynamics, kinetics, and equilibrium
-               with real past-exam problem sets." -->
           Master organic, inorganic, physical and analytical chemistry concepts beyond the standard high school curriculum. Learn the theory needed to solve challenging Olympiad problems.
         </p>
       </div>
@@ -258,26 +304,8 @@
         <p>Learn from proven Olympiad methods, past paper analysis, and targeted practice designed to maximise performance in USNCO exams and beyond.</p>
       </div>
       
-      <!--
-      <div class="feature-card">
-        <div class="feature-icon">📅</div>
-        <h3>[Topic / Strength #4]</h3>
-        <p>[Description of this feature or subject area.]</p>
-      </div>
-      -->
-
     </div>
   </section>
-
-  <!-- ══ Quote / Testimonial ══ -->
-  <!--
-  <div class="quote-strip">
-    <blockquote>
-      "[Student testimonial or an inspiring quote about learning chemistry goes here.]"
-    </blockquote>
-    <cite>— [Student name or source]</cite>
-  </div>
-  -->
 
   <!-- ══ Bottom CTA ══ -->
   <section class="cta-section">
