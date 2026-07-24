@@ -12,7 +12,8 @@
     gtag('config', 'G-D6L898YN1J');
   </script>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="One-on-one Chemistry Olympiad tutoring for USNCO and IChO preparation. Personalized coaching in physical, organic, inorganic, and analytical chemistry." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="One-on-one Chemistry Olympiad tutoring for USNCO and IChO preparation. Personalized coaching in physical, organic, inorganic, and analytical chemistry." />
   <title>Chemistry Olympiad Tutoring | USNCO & IChO Chemistry Coaching — Book</title>
   <link rel="stylesheet" href="style.css" />
   <style>
@@ -215,6 +216,10 @@
   <!-- ══ Navigation ══ -->
   <nav>
     <div class="nav-logo">Chem<span>Olympiad</span> Tutoring</div>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </label>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
@@ -378,12 +383,18 @@
 
   <!-- ══ Footer ══ -->
   <footer>
-    <p>© <span id="yr"></span> ChemOlympiad Tutoring &nbsp;·&nbsp; <a href="chemolympiadtutoring@gmail.com">chemolympiadtutoring@gmail.com</a></p>
+    <p>© <span id="yr"></span> ChemOlympiad Tutoring &nbsp;·&nbsp; <a href="mailto:chemolympiadtutoring@gmail.com">chemolympiadtutoring@gmail.com</a></p>
   </footer>
 
   <!-- ══ Form JS ══ -->
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Close mobile nav menu after tapping a link
+    const navToggle = document.getElementById('nav-toggle');
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => { navToggle.checked = false; });
+    });
 
     const form = document.getElementById('contact-form');
     const successMsg = document.getElementById('form-success');
