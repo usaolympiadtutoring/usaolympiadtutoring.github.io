@@ -233,7 +233,7 @@ footer a { color: var(--gold); }
 
   .nav-links {
     position: absolute;
-    top: 64px;
+    top: 80px;
     left: 0;
     right: 0;
     flex-direction: column;
