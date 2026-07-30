@@ -58,11 +58,13 @@ nav {
   font-size: 1.25rem;
   color: var(--white);
   letter-spacing: 0.01em;
+  display: flex;
 }
 
 .nav-logo img {
   height: 80px;
   width: auto;
+  display: block;
 }
 
 .nav-logo span { color: var(--gold); }
