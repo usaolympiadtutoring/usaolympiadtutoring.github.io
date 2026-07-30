@@ -264,6 +264,6 @@ footer a { color: var(--gold); }
 
 @media (max-width: 600px) {
   nav { padding: 0 1rem; }
-  .nav-logo { font-size: 1rem; }
+  .nav-logo { font-size: 1.5rem; }
   section { padding: 3rem 1.25rem; }
 }
