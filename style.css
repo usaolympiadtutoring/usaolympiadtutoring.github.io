@@ -37,7 +37,7 @@ body {
   flex-direction: column;
 }
 
-img { max-width: 100%; display: block; }
+/* img { max-width: 100%; display: block; } */
 a  { color: inherit; text-decoration: none; }
 
 /* --- Navigation --- */
