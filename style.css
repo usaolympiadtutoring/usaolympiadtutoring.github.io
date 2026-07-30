@@ -58,7 +58,8 @@ nav {
   font-size: 1.25rem;
   color: var(--white);
   letter-spacing: 0.01em;
-  display: block;
+  display: flex;
+  align-items: center;
 }
 
 .nav-logo img {
